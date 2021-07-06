@@ -1,0 +1,29 @@
+* {
+    font-family: 'Otomanopee One', sans-serif;
+}
+
+.header_box{
+    text-align: center;
+}
+
+.header_logo {
+    margin: 2rem 0;
+    /*<!-- 2rem은 상하 0은 좌우  -->*/
+}
+
+.header_button{
+    margin:1.5rem 0;
+    text-align: center;
+}
+
+.footer_box {
+     text-align: center;
+}
+
+.footer_button{
+    margin:1.5rem 0;
+}
+
+.footer_logo{
+    margin: 1.5rem 0;
+}
