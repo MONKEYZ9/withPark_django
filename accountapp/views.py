@@ -13,8 +13,9 @@ from django.shortcuts import render
 #  get post 방식에 따라 다르게 해야 하니까 if로 할 것이다.
 def hello_world(req):
     if req.method == 'POST':
+        temp = req.POST.get("input_text")
         return render(req, 'accountapp/hello_world.html',
-                    context={'text':'POST METHOD'})
+                    context={'text': temp})
     else:
         # 홈페이지에 접근할때는 보통 get 방식을 쓴다.
         return render(req, 'accountapp/hello_world.html',
