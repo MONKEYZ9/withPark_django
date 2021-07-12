@@ -91,6 +91,8 @@ WSGI_APPLICATION = 'withPark_Project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
+# 디비 설정이 이렇게 되어있다는 거야
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

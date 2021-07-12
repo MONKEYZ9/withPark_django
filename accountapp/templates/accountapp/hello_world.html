@@ -13,11 +13,10 @@
             <form action="/accountapp/hello_world/" method="post">
 {#               CSRF 토큰을 만드러야 해#}
                 {% csrf_token %}
-                <h3>{{ text }}</h3>
                 <input name="input_text" type="text">
                 <input type="submit" class="btn btn-dark rounded-pill">
             </form>
-
+            <h3>{{ new_hello_world.text }}</h3>
         </div>
     </section>
 {% endblock %}

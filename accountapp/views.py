@@ -11,11 +11,19 @@ from django.shortcuts import render
 
 
 #  get post 방식에 따라 다르게 해야 하니까 if로 할 것이다.
+from accountapp.models import HelloWorld
+
+
 def hello_world(req):
     if req.method == 'POST':
         temp = req.POST.get("input_text")
+        new_hello_world = HelloWorld() # 모델에서 가져왔어
+        new_hello_world.text = temp
+        new_hello_world.save() # 새로운 헬로 월드라는게 만들어 졌는데 이걸 객체를 보내줄거라는거야
+
+
         return render(req, 'accountapp/hello_world.html',
-                    context={'text': temp})
+                    context={'new_hello_world': new_hello_world})
     else:
         # 홈페이지에 접근할때는 보통 get 방식을 쓴다.
         return render(req, 'accountapp/hello_world.html',
