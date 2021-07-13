@@ -1,3 +1,5 @@
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
@@ -10,7 +12,8 @@ from django.shortcuts import render
 
 
 #  get post 방식에 따라 다르게 해야 하니까 if로 할 것이다.
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
+from django.views.generic import CreateView
 
 from accountapp.models import HelloWorld
 
@@ -40,3 +43,15 @@ def hello_world(req):
         # 홈페이지에 접근할때는 보통 get 방식을 쓴다.
         return render(req, 'accountapp/hello_world.html',
                       context={'new_hello_world_list': new_hello_world_list})
+
+
+class AccountCreateView(CreateView): # CreateView는 알아볼 필요가 있다. 
+    # 뭘 만들거냐 모델을 만들건데 장고에서 제공해주는 것이 있어 => User 
+    model = User # class AbstractUser(AbstractBaseUser, PermissionsMixin): 여기 함 들어가서 어떻게 되있나 봐봐라
+    form_class = UserCreationForm # 다 일일히 부르자
+    success_url =  reverse_lazy('accountapp:hello world')
+    # 예전에 리다이렉 했을때랑 동일하게 reverse를 이용해서 주소를 적어줬어 그거랑 동일하게 하면 된다.
+    # 근데 reverse를 바로 사용하면 안된다. 메소드에서 reverse를 부르는 것과 class에서 부르는 것은 엄연히 다르다는 거야
+    template_name = 'accountapp/create.html' #회원가입 페이지 이름을 뭐로 할건지를 정해주는거
+#  우리는 로직을 만들고 라우팅을 했어
+# 이걸 우리는 urls.py에서 했었어
