@@ -49,7 +49,7 @@ class AccountCreateView(CreateView): # CreateView는 알아볼 필요가 있다.
     # 뭘 만들거냐 모델을 만들건데 장고에서 제공해주는 것이 있어 => User 
     model = User # class AbstractUser(AbstractBaseUser, PermissionsMixin): 여기 함 들어가서 어떻게 되있나 봐봐라
     form_class = UserCreationForm # 다 일일히 부르자
-    success_url =  reverse_lazy('accountapp:hello world')
+    success_url = reverse_lazy('accountapp:hello world')
     # 예전에 리다이렉 했을때랑 동일하게 reverse를 이용해서 주소를 적어줬어 그거랑 동일하게 하면 된다.
     # 근데 reverse를 바로 사용하면 안된다. 메소드에서 reverse를 부르는 것과 class에서 부르는 것은 엄연히 다르다는 거야
     template_name = 'accountapp/create.html' #회원가입 페이지 이름을 뭐로 할건지를 정해주는거
