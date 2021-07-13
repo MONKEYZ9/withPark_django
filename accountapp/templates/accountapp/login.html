@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <div class="text-center">
+        <div class="m-5">
+            <h4>Login</h4>
+        </div>
+        <div>
+            <form action="{% url 'accountapp:login' %}" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <div class="m-5">
+                    <input type="submit" class="btn btn-dark rounded-pill px-5">
+                    {# http://127.0.0.1:8000/accounts/profile/ 로 경로를 보내게 돼#}
+                    {# 이걸 메인의 setting.py에서 경로를 다시 설정해줘야 한다는 거야#}
+                </div>
+            </form>
+        </div>
+        <div>
+
+        </div>
+    </div>
+
+
+
+{% endblock %}
