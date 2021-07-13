@@ -53,5 +53,5 @@ class AccountCreateView(CreateView): # CreateView는 알아볼 필요가 있다.
     # 예전에 리다이렉 했을때랑 동일하게 reverse를 이용해서 주소를 적어줬어 그거랑 동일하게 하면 된다.
     # 근데 reverse를 바로 사용하면 안된다. 메소드에서 reverse를 부르는 것과 class에서 부르는 것은 엄연히 다르다는 거야
     template_name = 'accountapp/create.html' #회원가입 페이지 이름을 뭐로 할건지를 정해주는거
-#  우리는 로직을 만들고 라우팅을 했어
-# 이걸 우리는 urls.py에서 했었어
+    #  우리는 로직을 만들고 라우팅을 했어
+    # 이걸 우리는 urls.py에서 했었어
