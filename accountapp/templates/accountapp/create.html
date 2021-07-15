@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 
-{% block content %}
 
-    <div class="text-center">
+{% block content %}
+{% load bootstrap4 %}
+
+    <div class="text-center mw-500 m-auto">
         <div class="m-5">
             <h4>Sign Up</h4>
         </div>
@@ -11,7 +13,8 @@
             {#리다이렉 하게 해놨으니.. url 적어주고 create을 불러오면 된다 #}
             <form action="{% url 'accountapp:create' %}" method="post">
                 {% csrf_token %}
-                {{ form }} {# 이렇게 하면 UserCreationForm를 여기서는 form을 만든걸 불러와준다는 거야 #}
+{#                {{ form }} {# 이렇게 하면 UserCreationForm를 여기서는 form을 만든걸 불러와준다는 거야 #}
+                {% bootstrap_form form %}
                 <div class="m-5">
                     <input type="submit" class="btn btn-dark rounded-pill px-5">
                 </div>
