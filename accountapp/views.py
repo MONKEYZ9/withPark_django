@@ -13,7 +13,7 @@ from django.shortcuts import render
 
 #  get post 방식에 따라 다르게 해야 하니까 if로 할 것이다.
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 
 from accountapp.models import HelloWorld
 
@@ -55,3 +55,10 @@ class AccountCreateView(CreateView): # CreateView는 알아볼 필요가 있다.
     template_name = 'accountapp/create.html' #회원가입 페이지 이름을 뭐로 할건지를 정해주는거
     #  우리는 로직을 만들고 라우팅을 했어
     # 이걸 우리는 urls.py에서 했었어
+
+
+# 회원정보
+class AccountDetailView(DetailView):
+    model = User
+    context_object_name = 'target_user'
+    template_name = 'accountapp/detail.html'

@@ -1,7 +1,9 @@
 <section>
     <div class="header_box">
         <div class="header_logo">
-            <h1>With Park django Project</h1>
+            <h1>
+                <a href="{% url 'accountapp:hello world' %}">With Park django Project </a>
+            </h1>
                                         {# font가 안될때 2차적으로 sans-serif를 쓰라고 하는거야   #}
         </div>
         <div class="header_button">
@@ -19,6 +21,10 @@
                 </span>
 
             {% else %}
+                <span>
+                    {# 파라메터 값을 넣어줘야 함  user객체가 요청을 하는 것이니까 user의 pk값을 받으면 돼   #}
+                    <a href="{% url 'accountapp:detail' pk=user.pk %}">Detail</a>
+                </span>
 
                 <span>
                     <a href="{% url 'accountapp:logout' %}">Logout</a>
