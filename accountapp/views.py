@@ -13,8 +13,9 @@ from django.shortcuts import render
 
 #  get post 방식에 따라 다르게 해야 하니까 if로 할 것이다.
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, UpdateView
 
+from accountapp.forms import AccountUpdateForm
 from accountapp.models import HelloWorld
 
 
@@ -60,5 +61,13 @@ class AccountCreateView(CreateView): # CreateView는 알아볼 필요가 있다.
 # 회원정보
 class AccountDetailView(DetailView):
     model = User
-    context_object_name = 'target_user'
+    context_object_name = 'target_user' # 우리가 템플릿에서 사용하는 유저의 객체를 보는 것이다.
     template_name = 'accountapp/detail.html'
+
+
+# 회원정보 업데이트
+class AccountUpdateView(UpdateView):
+    model = User  # class AbstractUser(AbstractBaseUser, PermissionsMixin): 여기 함 들어가서 어떻게 되있나 봐봐라
+    form_class = AccountUpdateForm  # 새롭게 만든 폼.py를 만들어서 옮겼어
+    success_url = reverse_lazy('accountapp:hello world')
+    template_name = 'accountapp/update.html'

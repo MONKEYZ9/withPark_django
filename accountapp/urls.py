@@ -1,7 +1,7 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path, include
 
-from accountapp.views import hello_world, AccountCreateView, AccountDetailView
+from accountapp.views import hello_world, AccountCreateView, AccountDetailView, AccountUpdateView
 
 # 나중에 라우팅을 편하게 해주는 것을 하는 것
 app_name = 'accountapp'
@@ -21,6 +21,12 @@ urlpatterns = [
 
     # 회원정보 확인하기
     # path('detail/', AccountDetailView.as_view(), name='detail'), # 이렇게 하면 틀림
-    # 키를 넘겨줘야 하는데 이걸 <int:pk> 로 한다는 거야 
-    path('detail/<int:pk>', AccountDetailView.as_view(), name='detail'), 
+    # 키를 넘겨줘야 하는데 이걸 <int:pk> 로 한다는 거야
+    #pk 라는 이름의 detail을 받겠다.
+    path('detail/<int:pk>', AccountDetailView.as_view(), name='detail'),
+
+
+    #  디테일 뷰와 다를 것이 없다.
+    path('update/<int:pk>', AccountUpdateView.as_view(), name='update'),
+
 ]
