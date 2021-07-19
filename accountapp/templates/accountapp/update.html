@@ -12,7 +12,7 @@
         <div>
             {# 회원가입이랑 같은 포맷을 사용하겠지 그래서 복붙 #}
             {# pk=user.pk 를 받아서 파라메터 값을 보내줘야해#}
-            <form action="{% url 'accountapp:update' pk=user.pk %}" method="post">
+            <form action="{% url 'accountapp:update' pk=target_user.pk %}" method="post">
                 {% csrf_token %}
 {#                {{ form }} {# 이렇게 하면 UserCreationForm를 회원가입때 같은 걸 부르는데 이건 아이디도 바꿔 그래서 form 을 커스터마이징하자 #}
                 {% bootstrap_form form %}

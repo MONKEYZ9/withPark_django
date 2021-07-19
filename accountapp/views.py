@@ -13,7 +13,7 @@ from django.shortcuts import render
 
 #  get post 방식에 따라 다르게 해야 하니까 if로 할 것이다.
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, DetailView, UpdateView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from accountapp.forms import AccountUpdateForm
 from accountapp.models import HelloWorld
@@ -75,3 +75,10 @@ class AccountUpdateView(UpdateView):
     success_url = reverse_lazy('accountapp:hello world') # detail로 가면 좋은데 detail에 갈 때 
     # 지금 urls에서 path('update/<int:pk>', 로 pk를 받아야 하는 상황이야
     template_name = 'accountapp/update.html'
+
+# 회원탈퇴
+class AccountDeleteView(DeleteView):
+    model = User
+    context_object_name = 'target_user'
+    success_url = reverse_lazy('accountapp:login')
+    template_name = 'accountapp/delete.html'

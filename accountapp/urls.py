@@ -1,7 +1,7 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path, include
 
-from accountapp.views import hello_world, AccountCreateView, AccountDetailView, AccountUpdateView
+from accountapp.views import hello_world, AccountCreateView, AccountDetailView, AccountUpdateView, AccountDeleteView
 
 # 나중에 라우팅을 편하게 해주는 것을 하는 것
 app_name = 'accountapp'
@@ -27,5 +27,9 @@ urlpatterns = [
 
     #  디테일 뷰와 다를 것이 없다.
     path('update/<int:pk>', AccountUpdateView.as_view(), name='update'),
+
+#     회원탈퇴
+    path('delete/<int:pk>', AccountDeleteView.as_view(), name='delete')
+
 
 ]
