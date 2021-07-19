@@ -68,9 +68,9 @@ class AccountDetailView(DetailView):
 # 회원정보 업데이트
 class AccountUpdateView(UpdateView):
     model = User  # class AbstractUser(AbstractBaseUser, PermissionsMixin): 여기 함 들어가서 어떻게 되있나 봐봐라
-    form_class = UserCreationForm # 업데이트 폼은 이전에 우리가 회원가입때 썼던 것을 쓸거야라고 했는데 
+    # form_class = UserCreationForm # 업데이트 폼은 이전에 우리가 회원가입때 썼던 것을 쓸거야라고 했는데
     # 문제가 있어 ==> 그럼 아이디까지 바뀐다는 거야
-    # form_class = AccountUpdateForm  # 새롭게 만든 폼.py를 만들어서 옮겼어
+    form_class = AccountUpdateForm  # 새롭게 만든 폼.py를 만들어서 옮겼어
     context_object_name = 'target_user' # 우리가 템플릿에서 사용하는 유저의 객체를 보는 것이다.
     success_url = reverse_lazy('accountapp:hello world') # detail로 가면 좋은데 detail에 갈 때 
     # 지금 urls에서 path('update/<int:pk>', 로 pk를 받아야 하는 상황이야

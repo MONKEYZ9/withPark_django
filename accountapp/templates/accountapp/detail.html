@@ -10,7 +10,7 @@
             <h2>
                 {{ target_user.date_joined }}
             </h2>
-            {% if target_user == user %}
+            {% if user == target_user  %}
                 <a href="{% url 'accountapp:update' pk=target_user.pk %}">
                     <p>
                         Change Info
@@ -21,7 +21,7 @@
                         Quit Info
                     </p>
                 </a>
-            {% endif %}
+            {% endif  %}
         </div>
     </div>
 
