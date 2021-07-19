@@ -25,7 +25,6 @@ urlpatterns = [
     #pk 라는 이름의 detail을 받겠다.
     path('detail/<int:pk>', AccountDetailView.as_view(), name='detail'),
 
-
     #  디테일 뷰와 다를 것이 없다.
     path('update/<int:pk>', AccountUpdateView.as_view(), name='update'),
 
