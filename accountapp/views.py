@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect, HttpResponseForbidden
@@ -13,42 +14,45 @@ from django.shortcuts import render
 
 #  get post 방식에 따라 다르게 해야 하니까 if로 할 것이다.
 from django.urls import reverse, reverse_lazy
+from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from accountapp.forms import AccountUpdateForm
 from accountapp.models import HelloWorld
 
 
+@login_required (login_url=reverse_lazy('accountapp:login'))  #이미 장고에서 login 확인하는 것을 만들어놨음
+# 어떻게 이렇게 잘 찾아갈까..?
+# 다만 login_url을 이렇게 하면 돼
 def hello_world(req):
     # 로그인이 되어있는지 안되어있는지 확인하고 post가 되었는지를 보자는 거야
-    if req.user.is_authenticated:
+    # if req.user.is_authenticated:  # => 이걸 decorator로 대체해줄거임
+    if req.method == 'POST':
+        temp = req.POST.get("input_text")
+        new_hello_world = HelloWorld()  # 모델에서 가져왔어
+        new_hello_world.text = temp
+        new_hello_world.save()  # 새로운 헬로 월드라는게 만들어 졌는데 이걸 객체를 보내줄거라는거야
 
-        if req.method == 'POST':
-            temp = req.POST.get("input_text")
-            new_hello_world = HelloWorld()  # 모델에서 가져왔어
-            new_hello_world.text = temp
-            new_hello_world.save()  # 새로운 헬로 월드라는게 만들어 졌는데 이걸 객체를 보내줄거라는거야
+        # new_hello_world_list = HelloWorld.objects.all()  # 여러가지가 있다. objects를 가져와야 하는데 여러가지가 있는 편이다.
+        # # 이걸 다 보내주는 거야
 
-            # new_hello_world_list = HelloWorld.objects.all()  # 여러가지가 있다. objects를 가져와야 하는데 여러가지가 있는 편이다.
-            # # 이걸 다 보내주는 거야
+        # 리다이렉을 하게 되면 get에서 하고 있는 걸 다 받아내기에 굳이 할 필요가 없어
 
-            # 리다이렉을 하게 되면 get에서 하고 있는 걸 다 받아내기에 굳이 할 필요가 없어
-
-            # 리다이렉을 할거라는 거야
-            # 렌더로 매번 주소를 적어서 보내는게 아니라 해당 라우팅으로 가게끔해서 get으로 보여주도록 한다
-            # reverse 매소드를 가져와야 하는데 장고에서 제공하는 걸 가져오도록 한다.
-            return HttpResponseRedirect(reverse('accountapp:hello world'))
-            # return render(req, 'accountapp/hello_world.html',
-            #               context={'new_hello_world': new_hello_world, 'new_hello_world_list': new_hello_world_list})
-        else:
-            new_hello_world_list = HelloWorld.objects.all()  # 여러가지가 있다. objects를 가져와야 하는데 여러가지가 있는 편이다.
-            # post와 똑같이 리스트로 받아서 보여주도록 하자
-
-            # 홈페이지에 접근할때는 보통 get 방식을 쓴다.
-            return render(req, 'accountapp/hello_world.html',
-                          context={'new_hello_world_list': new_hello_world_list})
+        # 리다이렉을 할거라는 거야
+        # 렌더로 매번 주소를 적어서 보내는게 아니라 해당 라우팅으로 가게끔해서 get으로 보여주도록 한다
+        # reverse 매소드를 가져와야 하는데 장고에서 제공하는 걸 가져오도록 한다.
+        return HttpResponseRedirect(reverse('accountapp:hello world'))
+        # return render(req, 'accountapp/hello_world.html',
+        #               context={'new_hello_world': new_hello_world, 'new_hello_world_list': new_hello_world_list})
     else:
-        return HttpResponseRedirect(reverse('accountapp:login'))
+        new_hello_world_list = HelloWorld.objects.all()  # 여러가지가 있다. objects를 가져와야 하는데 여러가지가 있는 편이다.
+        # post와 똑같이 리스트로 받아서 보여주도록 하자
+
+        # 홈페이지에 접근할때는 보통 get 방식을 쓴다.
+        return render(req, 'accountapp/hello_world.html',
+                      context={'new_hello_world_list': new_hello_world_list})
+    # else:
+    #     return HttpResponseRedirect(reverse('accountapp:login')) # => decorator 적용할거임
 
 
 class AccountCreateView(CreateView):  # CreateView는 알아볼 필요가 있다.
@@ -71,6 +75,8 @@ class AccountDetailView(DetailView):
 
 
 # 회원정보 업데이트
+@method_decorator(login_required, 'get') # 메소드로 바꿔주는 데코레이터라는 거임
+@method_decorator(login_required, 'post')
 class AccountUpdateView(UpdateView):
     model = User  # class AbstractUser(AbstractBaseUser, PermissionsMixin): 여기 함 들어가서 어떻게 되있나 봐봐라
     # form_class = UserCreationForm # 업데이트 폼은 이전에 우리가 회원가입때 썼던 것을 쓸거야라고 했는데
@@ -83,24 +89,28 @@ class AccountUpdateView(UpdateView):
 
     #     로그인이 되어있는지 확인하자
     #     get과 post를 하는 것을 막기 위해서 하는 것니까
-    def get(self, request, *args, **kwargs):
-        # return super().get(request, *args, **kwargs) 현재는 지금 부모메소드를 사용한거야
-        # 인증과정 추가한 것을 리턴해주자
-        # 현재 로그인 중인지, 동일 인물인지
-        if request.user.is_authenticated and self.get_object() == request.user:
-            return super().get(request, *args, **kwargs)
-        else:
-            # 잘못된 곳으로 갔는 것을 확인해주는 것
-            return HttpResponseForbidden()
 
-    def post(self, request, *args, **kwargs):
-        if request.user.is_authenticated and self.get_object() == request.user:
-            return super().get(request, *args, **kwargs)
-        else:
-            return HttpResponseForbidden()
+    # @login_required => 이거 이렇게는 구동이 안됨 클래스 안의 메소드이기에
+    # def get(self, request, *args, **kwargs):
+    #     # return super().get(request, *args, **kwargs) 현재는 지금 부모메소드를 사용한거야
+    #     # 인증과정 추가한 것을 리턴해주자
+    #     # 현재 로그인 중인지, 동일 인물인지
+    #     if request.user.is_authenticated and self.get_object() == request.user:
+    #         return super().get(request, *args, **kwargs)
+    #     else:
+    #         # 잘못된 곳으로 갔는 것을 확인해주는 것
+    #         return HttpResponseForbidden()
+    #
+    # def post(self, request, *args, **kwargs):
+    #     if request.user.is_authenticated and self.get_object() == request.user:
+    #         return super().get(request, *args, **kwargs)
+    #     else:
+    #         return HttpResponseForbidden()
 
 
 # 회원탈퇴
+@method_decorator(login_required, 'get')
+@method_decorator(login_required, 'post')
 class AccountDeleteView(DeleteView):
     model = User
     context_object_name = 'target_user'
@@ -108,14 +118,14 @@ class AccountDeleteView(DeleteView):
     template_name = 'accountapp/delete.html'
 
     #     로그인이 되어있는지 확인하자
-    def get(self, request, *args, **kwargs):
-        if request.user.is_authenticated and self.get_object() == request.user:
-            return super().get(request, *args, **kwargs)
-        else:
-            return HttpResponseForbidden()
-
-    def post(self, request, *args, **kwargs):
-        if request.user.is_authenticated and self.get_object() == request.user:
-            return super().get(request, *args, **kwargs)
-        else:
-            return HttpResponseForbidden()
+    # def get(self, request, *args, **kwargs):
+    #     if request.user.is_authenticated and self.get_object() == request.user:
+    #         return super().get(request, *args, **kwargs)
+    #     else:
+    #         return HttpResponseForbidden()
+    #
+    # def post(self, request, *args, **kwargs):
+    #     if request.user.is_authenticated and self.get_object() == request.user:
+    #         return super().get(request, *args, **kwargs)
+    #     else:
+    #         return HttpResponseForbidden()

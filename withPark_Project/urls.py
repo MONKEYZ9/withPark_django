@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('accounts/', include('accountapp.urls')) => 장고에서 기본적으로 만들어놓은 경로이다.
     path('accountapp/', include('accountapp.urls'))
 ]
