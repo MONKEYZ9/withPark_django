@@ -17,8 +17,10 @@ from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
+from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountUpdateForm
 from accountapp.models import HelloWorld
+
 
 
 @login_required (login_url=reverse_lazy('accountapp:login'))  #이미 장고에서 login 확인하는 것을 만들어놨음
@@ -56,7 +58,7 @@ def hello_world(req):
 
 
 class AccountCreateView(CreateView):  # CreateView는 알아볼 필요가 있다.
-    # 뭘 만들거냐 모델을 만들건데 장고에서 제공해주는 것이 있어 => User 
+    # 뭘 만들거냐 모델을 만들건데 장고에서 제공해주는 것이 있어 => User
     model = User  # class AbstractUser(AbstractBaseUser, PermissionsMixin): 여기 함 들어가서 어떻게 되있나 봐봐라
     form_class = UserCreationForm  # 다 일일히 부르자
     success_url = reverse_lazy('accountapp:hello world')
@@ -74,9 +76,12 @@ class AccountDetailView(DetailView):
     template_name = 'accountapp/detail.html'
 
 
+# 데코레이터를 확인하는 리스트
+has_ownership = [login_required, account_ownership_required]
+
 # 회원정보 업데이트
-@method_decorator(login_required, 'get') # 메소드로 바꿔주는 데코레이터라는 거임
-@method_decorator(login_required, 'post')
+@method_decorator(has_ownership, 'get') # 메소드로 바꿔주는 데코레이터라는 거임
+@method_decorator(has_ownership, 'post')
 class AccountUpdateView(UpdateView):
     model = User  # class AbstractUser(AbstractBaseUser, PermissionsMixin): 여기 함 들어가서 어떻게 되있나 봐봐라
     # form_class = UserCreationForm # 업데이트 폼은 이전에 우리가 회원가입때 썼던 것을 쓸거야라고 했는데
@@ -109,8 +114,8 @@ class AccountUpdateView(UpdateView):
 
 
 # 회원탈퇴
-@method_decorator(login_required, 'get')
-@method_decorator(login_required, 'post')
+@method_decorator(has_ownership, 'get')
+@method_decorator(has_ownership, 'post')
 class AccountDeleteView(DeleteView):
     model = User
     context_object_name = 'target_user'
