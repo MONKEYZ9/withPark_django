@@ -142,7 +142,7 @@ STATICFILES_DIRS = [
     # '/var/www/static/', 이건 필요없어서 주석처리
 ]
 
-MEDIA_URL = '/static/'
+MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
