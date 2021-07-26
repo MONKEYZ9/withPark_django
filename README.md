@@ -150,3 +150,8 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 - 회원의 media를 적용하기 위해서 저장할 수 있고 불러올 수 있게끔 setting.py에 추가
 - profileapp 생성 python manage.py startapp profileapp 
 - urls, setting profileapp 추가 후 profileapp의 urls 추가
+
+
+##0726
+1. profileapp 설정
+- model 설정 -> migration만들자 -> pillow가 없어서 설치 안됨(pip install pillow) -> python manage.py makemigrations, python manage.py migrate
