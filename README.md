@@ -155,3 +155,5 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 ##0726
 1. profileapp 설정
 - model 설정 -> migration만들자 -> pillow가 없어서 설치 안됨(pip install pillow) -> python manage.py makemigrations, python manage.py migrate
+-> makemigrations 는 모델에서 변화가 일어났는 것을 model에 차이가 있으면 변경사항을 감지해서 저장해주는 것 하지만 실제로 반영되지 않았어
+-> migrate는 이제 모델에 실제로 반영을 해주는 거
