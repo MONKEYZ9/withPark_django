@@ -163,4 +163,4 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 3. view 설정
 - templates/profileapp 디렉토리 생성
 - create.html 생성,  form 커스터마이징 진행 enctype="multipart/form-data" 추가
-- 
+- multipart/form-data는 form 요소가 파일이나 이미지를 서버로 전송할 때 쓰임
