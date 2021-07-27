@@ -4,24 +4,38 @@
 
     <div class="text-center mw-500 m-auto">
         <div class="m-5">
-            <h4>{{ target_user.username }}</h4>
+            {% if target_user.profile %}
+                {# 이미지를 출력할때는 image의 url을 출력해줘야 한다 #}
+                {# alt=""는 대체 이미지 #}
+                {# 나오지 않는다 => 왜 안나올까 어떤 url로 설정해야 나온다는 걸 설정해줘야 한다 #}
+                <img src="{{ target_user.profile.image.url }}"
+                     alt="profile image">
+                <h4>{{ target_user.profile.nickname }}</h4>
+                <h5>{{ target_user.profile.message }}</h5>
+            {% else %}
+                <h4>
+                    <a href="{% url 'profileapp:create' %}">
+                        Create Profile
+                    </a>
+                </h4>
+            {% endif %}
         </div>
         <div>
             <h2>
                 {{ target_user.date_joined }}
             </h2>
-            {% if user == target_user  %}
+            {% if user == target_user %}
                 <a href="{% url 'accountapp:update' pk=target_user.pk %}">
                     <p>
                         Change Info
                     </p>
                 </a>
-                 <a href="{% url 'accountapp:delete' pk=target_user.pk %}">
+                <a href="{% url 'accountapp:delete' pk=target_user.pk %}">
                     <p>
                         Quit Info
                     </p>
                 </a>
-            {% endif  %}
+            {% endif %}
         </div>
     </div>
 
