@@ -168,7 +168,12 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 ##0727
 1. Profile views.py에 form_valid를 추가
 
-2. profile info 업데이트
+2. profile info 추가
 - detail.html에 profile info가 나오게끔 수정
 - urls.py에  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)를 추가
 - account detail.html, css 추가
+
+3. profile update 추가
+- profileapp의 views.py에 updateview 추가
+- profileapp의 urls.py에 path (pk가 감안된) 추가
+- accountapp의 detail에 추가할 수 있게 path 설정
