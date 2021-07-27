@@ -2,7 +2,7 @@
     font-family: 'Otomanopee One', sans-serif;
 }
 
-.header_box{
+.header_box {
     text-align: center;
 }
 
@@ -11,24 +11,37 @@
     /*<!-- 2rem은 상하 0은 좌우  -->*/
 }
 
-.header_button{
-    margin:1.5rem 0;
+.header_button {
+    margin: 1.5rem 0;
     text-align: center;
 }
 
 .footer_box {
-     text-align: center;
+    text-align: center;
 }
 
-.footer_button{
-    margin:1.5rem 0;
-}
-
-.footer_logo{
+.footer_button {
     margin: 1.5rem 0;
 }
 
-.mw-500{
+.footer_logo {
+    margin: 1.5rem 0;
+}
+
+.mw-500 {
     max-width: 500px;
     padding: 1rem 1.5rem;
+}
+
+
+.profile_image {
+    height: 12rem;
+    width: 12rem;
+    border-radius: 20rem;
+    object-fit: cover;
+}
+
+
+.NNS_B {
+    font-family: "NanumSquareB", cursive;
 }
