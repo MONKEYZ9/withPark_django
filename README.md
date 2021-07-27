@@ -171,3 +171,4 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 2. profile info 업데이트
 - detail.html에 profile info가 나오게끔 수정
 - urls.py에  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)를 추가
+- account detail.html, css 추가
