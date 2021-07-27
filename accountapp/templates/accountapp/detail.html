@@ -9,6 +9,7 @@
                 {# alt=""는 대체 이미지 #}
                 {# 나오지 않는다 => 왜 안나올까 어떤 url로 설정해야 나온다는 걸 설정해줘야 한다 #}
                 <img src="{{ target_user.profile.image.url }}"
+                     class="profile_image m-4"
                      alt="profile image">
                 <h2 class="NNS_B">{{ target_user.profile.nickname }}</h2>
                 <h5>{{ target_user.profile.message }}</h5>
