@@ -181,3 +181,9 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 
 ##0729
 1. profile 로그인해야 볼 수 있게끔 하자
+- decorator 추가
+
+2. profile update redirect 페이지 수정
+- success_url = reverse_lazy('accountapp:hello world') 수정
+- profile views.py에 get_success_url 추가
+- accountapp views.py에 get_success_url 추가

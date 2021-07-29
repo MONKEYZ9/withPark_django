@@ -11,7 +11,9 @@
         </div>
         <div>
             {# profileapp에서의 update를 봐야하고 target_profile의 pk를 가져오자는 거야#}
-            <form action="{% url 'profileapp:update' pk=target_profile.pk %}" method="post">
+            <form action="{% url 'profileapp:update' pk=target_profile.pk %}"
+                  enctype="multipart/form-data"
+                  method="post">
                 {% csrf_token %}
                 {% bootstrap_form form %}
                 <div class="m-5">

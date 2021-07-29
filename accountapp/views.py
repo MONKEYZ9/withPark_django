@@ -22,8 +22,7 @@ from accountapp.forms import AccountUpdateForm
 from accountapp.models import HelloWorld
 
 
-
-@login_required (login_url=reverse_lazy('accountapp:login'))  #이미 장고에서 login 확인하는 것을 만들어놨음
+@login_required(login_url=reverse_lazy('accountapp:login'))  # 이미 장고에서 login 확인하는 것을 만들어놨음
 # 어떻게 이렇게 잘 찾아갈까..?
 # 다만 login_url을 이렇게 하면 돼
 def hello_world(req):
@@ -79,8 +78,9 @@ class AccountDetailView(DetailView):
 # 데코레이터를 확인하는 리스트
 has_ownership = [login_required, account_ownership_required]
 
+
 # 회원정보 업데이트
-@method_decorator(has_ownership, 'get') # 메소드로 바꿔주는 데코레이터라는 거임
+@method_decorator(has_ownership, 'get')  # 메소드로 바꿔주는 데코레이터라는 거임
 @method_decorator(has_ownership, 'post')
 class AccountUpdateView(UpdateView):
     model = User  # class AbstractUser(AbstractBaseUser, PermissionsMixin): 여기 함 들어가서 어떻게 되있나 봐봐라
@@ -88,7 +88,7 @@ class AccountUpdateView(UpdateView):
     # 문제가 있어 ==> 그럼 아이디까지 바뀐다는 거야
     form_class = AccountUpdateForm  # 새롭게 만든 폼.py를 만들어서 옮겼어
     context_object_name = 'target_user'  # 우리가 템플릿에서 사용하는 유저의 객체를 보는 것이다.
-    success_url = reverse_lazy('accountapp:hello world')  # detail로 가면 좋은데 detail에 갈 때
+    # success_url = reverse_lazy('accountapp:hello world')  # detail로 가면 좋은데 detail에 갈 때
     # 지금 urls에서 path('update/<int:pk>', 로 pk를 받아야 하는 상황이야
     template_name = 'accountapp/update.html'
 
@@ -111,6 +111,10 @@ class AccountUpdateView(UpdateView):
     #         return super().get(request, *args, **kwargs)
     #     else:
     #         return HttpResponseForbidden()
+    
+    # 여기서는 조금 달라 유저의 pk를 그냥 가져오면 되니까
+    def get_success_url(self):
+        return reverse('accountapp:detail', kwargs={'pk': self.object.pk})
 
 
 # 회원탈퇴
