@@ -1,25 +1,38 @@
-.pragmatic_header_logo {
+* {
+    font-family: 'Otomanopee One', sans-serif;
+}
+
+.header_box {
+    text-align: center;
+}
+
+.header_logo {
     margin: 2rem 0;
-    font-family: 'Pacifico', cursive;
+    /*<!-- 2rem은 상하 0은 좌우  -->*/
 }
 
-.pragmatic_header_button {
-    margin-bottom: 2rem;
-}
-
-.pragmatic_footer_logo {
+.header_button {
     margin: 1.5rem 0;
-    font-family: 'Pacifico', cursive;
+    text-align: center;
 }
 
-.pragmatic_footer_button {
-    margin-top: 1.5rem;
+.footer_box {
+    text-align: center;
+}
+
+.footer_button {
+    margin: 1.5rem 0;
+}
+
+.footer_logo {
+    margin: 1.5rem 0;
 }
 
 .mw-500 {
     max-width: 500px;
     padding: 1rem 1.5rem;
 }
+
 
 .profile_image {
     height: 12rem;
@@ -28,9 +41,11 @@
     object-fit: cover;
 }
 
+
 .NNS_B {
     font-family: "NanumSquareB", cursive;
 }
+
 
 .round_button {
     color: black;
