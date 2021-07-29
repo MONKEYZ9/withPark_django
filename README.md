@@ -167,6 +167,7 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 
 ##0727
 1. Profile views.py에 form_valid를 추가
+- user 속성이 model에 없는데 그걸 넣어주는 거야 유저를 할당해주는거야
 
 2. profile info 추가
 - detail.html에 profile info가 나오게끔 수정
@@ -177,3 +178,6 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 - profileapp의 views.py에 updateview 추가
 - profileapp의 urls.py에 path (pk가 감안된) 추가
 - accountapp의 detail에 추가할 수 있게 path 설정
+
+##0729
+1. profile 로그인해야 볼 수 있게끔 하자

@@ -14,10 +14,12 @@
                 <h2 class="NNS_B">{{ target_user.profile.nickname }}
                     {# 프로필 업데이트 추가                    #}
                     <br>
-                    <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
-                        Profile edit
-                    </a>
-                </h2>
+                    {% if user == target_user %}
+                        <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                            Profile edit
+                        </a>
+                        </h2>
+                    {% endif %}
                 <h5>{{ target_user.profile.message }}</h5>
             {% else %}
                 {# 만약 프로필을 만들지 않아서 뜨지 않는다면 여기로 가게끔 #}
