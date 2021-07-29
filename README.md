@@ -187,3 +187,5 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 - success_url = reverse_lazy('accountapp:hello world') 수정
 - profile views.py에 get_success_url 추가
 - accountapp views.py에 get_success_url 추가
+
+3. accountapp update 단어를 구글 아이콘으로 수정하기

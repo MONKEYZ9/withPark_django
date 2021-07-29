@@ -13,10 +13,9 @@
                      alt="profile image">
                 <h2 class="NNS_B">{{ target_user.profile.nickname }}
                     {# 프로필 업데이트 추가                    #}
-                    <br>
                     {% if user == target_user %}
-                        <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
-                            Profile edit
+                        <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}"
+                           class="material-icons round_button">
                         </a>
                         </h2>
                     {% endif %}

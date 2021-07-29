@@ -6,32 +6,42 @@
     <meta charset="UTF-8">
     <title>WithPark_django</title>
     {# BOOTSTRP LINK #}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     {# google font link    #}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap" rel="stylesheet">
     {# base.css    #}
     <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+
+    {# MATERIAL ICONS LINK #}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+
     <style>
         @font-face {
-            {# 이름 선언#}
+        {# 이름 선언#}
             font-family: 'NanumSquareR';
-            {# 컴퓨터 자체에 저장되있는 것을 찾아라 #}
+        {# 컴퓨터 자체에 저장되있는 것을 찾아라 #}
             src: local('NanumSquareR'),
             {# 로컬에 없다고 하면 url로 찾아서 요청을 해서 가져와라#}
             url("{% static 'fonts/NanumSquareR.otf' %}") format("opentype");
         }
+
         @font-face {
             font-family: 'NanumSquareEB';
             src: local('NanumSquareEB'),
             url("{% static 'fonts/NanumSquareEB.otf' %}") format("opentype");
         }
+
         @font-face {
             font-family: 'NanumSquareB';
             src: local('NanumSquareB'),
             url("{% static 'fonts/NanumSquareB.otf' %}") format("opentype");
         }
+
         @font-face {
             font-family: 'NanumSquareL';
             src: local('NanumSquareL'),
