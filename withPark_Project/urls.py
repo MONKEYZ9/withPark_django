@@ -19,8 +19,9 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    # path('accounts/', include('accountapp.urls')) => 장고에서 기본적으로 만들어놓은 경로이다.
-    path('accountapp/', include('accountapp.urls')),
-    path('profileapp/', include('profileapp.urls'))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path('admin/', admin.site.urls),
+                  # path('accounts/', include('accountapp.urls')) => 장고에서 기본적으로 만들어놓은 경로이다.
+                  path('accounts/', include('accountapp.urls')),
+                  path('profiles/', include('profileapp.urls')),
+                  path('articles/', include('articleappapp.urls'))
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

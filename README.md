@@ -192,3 +192,10 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 
 4. account detail.html 수정
 - update, delete icons 추가
+
+##0802
+1. articleapp 추가
+- python manage.py startapp articleapp
+- main의 setting, urls 조정
+
+1. Magic Grid 추가
