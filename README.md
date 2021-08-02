@@ -202,3 +202,6 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 - https://jsfiddle.net/eolaojo/4pov0rdf/
 - https://github.com/e-oj/Magic-Grid/blob/master/dist/magic-grid.cjs.js
 - list.html 수정
+
+3. lorem picsum 추가
+- https://picsum.photos/
