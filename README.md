@@ -208,3 +208,6 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 - 개발자 탭에 사진을 언제 요청하고 가져오고 하는 걸 알 수 있는데 가져올때마다 레이아웃을 다시 정리해야해함
 - 로딩될때마다 다시 해주는 것
 - magicgrid에서 하는 걸 추가해줬음
+
+4. article Model구축
+- model.py 수정, python manage.py makemigrations, python manage.py migrate
