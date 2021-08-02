@@ -23,5 +23,5 @@ urlpatterns = [
                   # path('accounts/', include('accountapp.urls')) => 장고에서 기본적으로 만들어놓은 경로이다.
                   path('accounts/', include('accountapp.urls')),
                   path('profiles/', include('profileapp.urls')),
-                  path('articles/', include('articleappapp.urls'))
+                  path('articles/', include('articleapp.urls'))
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
