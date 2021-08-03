@@ -222,3 +222,7 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
   Cannot assign "<SimpleLazyObject: <django.contrib.auth.models.AnonymousUser object at 0x000001A824342730>>": "Article.writer" must be a "User" instance.
   로그인하고 나서 할 수 있게 해야해
   
+2. Article detail 
+- articleapp view에 detailview 추가
+- urls에 path 추가
+- detail.html 추가
