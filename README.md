@@ -233,3 +233,8 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 - update.html 추가 create.html과 같아
 
 4. Article detail.html 버튼 추가
+
+5.  Article delete 
+- articleapp view에 deleteview 추가
+- urls에 path 추가
+- delete.html create.html에서 아주 조금 고쳐서 가자
