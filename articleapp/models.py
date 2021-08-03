@@ -4,6 +4,8 @@ from django.db import models
 # Create your models here.
 class Article(models.Model):
     writer = models.ForeignKey(User, on_delete=models.SET_NULL,
+                               # 외래키 개념으로 간다. user랑 연결된게 있으면
+                               # user.ariticle 이런식으로
                                related_name='article', null=True)
     title = models.CharField(max_length=200, null=True) # 제목 없어도 된다.
     image = models.ImageField(upload_to='article/', null=True)

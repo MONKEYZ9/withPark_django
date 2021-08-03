@@ -211,3 +211,14 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 
 4. article Model구축
 - model.py 수정, python manage.py makemigrations, python manage.py migrate
+
+##0803
+1. Article create 만들기
+- articleapp view에 createview 추가
+- urls에 path 추가
+- db에 보면 writer_id가 null로 되어있어
+=> 이걸 해결해야해 
+  view에 form_valid를 추가해줘야 해
+  Cannot assign "<SimpleLazyObject: <django.contrib.auth.models.AnonymousUser object at 0x000001A824342730>>": "Article.writer" must be a "User" instance.
+  로그인하고 나서 할 수 있게 해야해
+  
