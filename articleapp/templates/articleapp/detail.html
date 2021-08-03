@@ -16,6 +16,12 @@
             <img src="{{ target_article.image.url }}" alt="">
             {{ target_article.content }}
         </div>
+        <div>
+            <a href="{% url 'articleapp:update' pk=target_article.pk%}"
+                   class="material-icons round_button md-36">
+                update
+            </a>
+        </div>
     </div>
 
 {% endblock %}

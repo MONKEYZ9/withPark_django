@@ -226,3 +226,10 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 - articleapp view에 detailview 추가
 - urls에 path 추가
 - detail.html 추가
+
+3. Article update 
+- articleapp view에 updateview 추가
+- urls에 path 추가
+- update.html 추가 create.html과 같아
+
+4. Article detail.html 버튼 추가
