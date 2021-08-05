@@ -238,3 +238,9 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 - articleapp view에 deleteview 추가
 - urls에 path 추가
 - delete.html create.html에서 아주 조금 고쳐서 가자
+
+##0805
+1. articlesapp decorator.py 추가
+- 로그인 확인
+- 해당 유저인지 아닌지 확인하는 거
+- createview 에서는 successurl 추가 
