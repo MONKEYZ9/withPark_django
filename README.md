@@ -254,3 +254,5 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 - urls.py path 수정
 - list.html 수정
 - create button 추가
+- pagination 추가
+- include로 pagination.html 불러오기

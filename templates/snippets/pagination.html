@@ -1,0 +1,20 @@
+<div class="text-center">
+    {# 이전페이지로 향하는 것을 만들어주자 #}
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}"
+           class="btn btn-secondary rounded=pill">
+            {{ page_obj.previous_page_number }}
+        </a>
+    {% endif %}
+    <a href="#"
+       class="btn btn-dark rounded=pill">
+        {# 다음페이지가 있다면 뽑아줄 수 있어야 해 #}
+        {{ page_obj.number }}
+    </a>
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}"
+           class="btn btn-secondary rounded=pill">
+            {{ page_obj.next_page_number }}
+        </a>
+    {% endif %}
+</div>
