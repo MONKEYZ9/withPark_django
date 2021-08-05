@@ -249,7 +249,8 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 - detail.html 수정
 - base.css  추가
 
-2. Article list 수정
+3. Article list 수정
 - view.py에 ArticleListView 추가
 - urls.py path 수정
 - list.html 수정
+- create button 추가
