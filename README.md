@@ -244,3 +244,7 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 - 로그인 확인
 - 해당 유저인지 아닌지 확인하는 거
 - createview 에서는 successurl 추가 
+
+2. Article detail.html 수정
+- detail.html 수정
+- base.css  추가
