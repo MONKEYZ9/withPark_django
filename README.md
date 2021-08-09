@@ -268,3 +268,8 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 2.  시작
 - python manage.py startapp commentapp
 - setting.py, urls.py 설정하고 urls.py 추가
+
+3. comment Model 구축
+- python manage.py makemigrations
+- python manage.py migrate
+- forms.py 추가해서 form을 커스터마이징하자
