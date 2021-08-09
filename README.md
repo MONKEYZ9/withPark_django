@@ -278,3 +278,11 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 - views.py에 CommentCreateView 추가
 - urls.py에 urlspattern 추가
 - templates/commentapp create.html 추가
+
+5. comment 댓글 article detail.html에 추가하기
+- articleapp view.py에 ArticleDetailView에 FormMixin를 다중상속시킴 form_class = CommentCreationForm 추가
+- detail.html에 {% include 'commentapp/create.html' %} 로 추가
+- create.html에 url 이름 수정 및 target_article.pk 값 전송을 위해 input hidden 타입으로 전송
+- commentapp view.py에 form_valid 추가 이때 article_pk를 input name으로 받아오기
+  
+- appname 수정 => urls.py의 app_name 수정, creta.html에 comments 수정
