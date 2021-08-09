@@ -273,3 +273,8 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 - python manage.py makemigrations
 - python manage.py migrate
 - forms.py 추가해서 form을 커스터마이징하자
+
+4. comment create 구축
+- views.py에 CommentCreateView 추가
+- urls.py에 urlspattern 추가
+- templates/commentapp create.html 추가
