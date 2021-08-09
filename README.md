@@ -256,3 +256,15 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 - create button 추가
 - pagination 추가
 - include로 pagination.html 불러오기
+
+##0809
+1. CommentApp(댓글)
+- Mixin : DetailView에서는 Form을 만들수가 없다.
+- 다중 상속을 통해서 한다는 거야
+- 그럼 form_class를 설정할 수 있게 된다.
+- Create Delete만 만들거고 Success_url은 article과 관련되게 할 것이다.
+- Model도 구축할거임
+ 
+2.  시작
+- python manage.py startapp commentapp
+- setting.py, urls.py 설정하고 urls.py 추가
