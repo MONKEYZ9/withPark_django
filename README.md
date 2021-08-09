@@ -286,3 +286,6 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 - commentapp view.py에 form_valid 추가 이때 article_pk를 input name으로 받아오기
   
 - appname 수정 => urls.py의 app_name 수정, creta.html에 comments 수정
+
+6. comment Delete 추가
+- delete.html 추가, urls.py path 추가, view.py view 추가
