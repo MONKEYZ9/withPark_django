@@ -38,6 +38,32 @@
 
         <div class="text-center mx-4">
             {# 댓글 자리 #}
+            {# 댓글 내용, 댓글 작성 #}
+
+            {# 일단 모든 코멘트를 가져와 #}
+            {% for comment in target_article.comment.all %}
+                <div class="comment_box">
+                    <div >
+                        <span style="font-size: 1.4rem;"
+                        class="NNS_B">
+                            {{ comment.writer.profile.nickname }}
+                        </span>
+                        <span >
+                            {{ comment.created_at }}
+                        </span>
+                    </div>
+                    <div>
+                        <p>
+                            {{ comment.content }}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+
+
+
             {% include 'commentapp/create.html' %}
         </div>
 
