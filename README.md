@@ -298,3 +298,10 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 - CommentCreateView 로그인 확인
 - CommentDeleteView 작성자 확인
 - decorated.py 추가
+
+2. 반응형으로 만들고 싶다.
+- NGROK Tunneling Program => host가 allow가 안되서 에러가 날거임
+    - setting.py에서 ALLOWED_HOSTS에 "*"로 모든 ip에서 접근할 수 있게끔
+- meta 태그 추가 => 기기에 따라 달라지게
+- <meta name="viewport" content="width=device-width, intial-scale=1.0, shrink-to-fit=no">
+- shrink-to-fit=no는 파이어 폭스 전용
