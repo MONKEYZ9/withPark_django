@@ -311,3 +311,7 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 - 가운데 정렬을 위한 Magic grid 수정 gutter 값 수정
 - detail.html css 수정
 - @media screen and (max-width: 500px) 를 추가적으로 수정함으로 
+
+2. projectapp 생성
+- python manage.py startapp projectapp
+- setting.py, urls.py 추가
