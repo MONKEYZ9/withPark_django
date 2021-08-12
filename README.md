@@ -305,3 +305,9 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 - meta 태그 추가 => 기기에 따라 달라지게
 - <meta name="viewport" content="width=device-width, intial-scale=1.0, shrink-to-fit=no">
 - shrink-to-fit=no는 파이어 폭스 전용
+
+##0812
+1. 모바일로 봤을때 비율 수정 article list
+- 가운데 정렬을 위한 Magic grid 수정 gutter 값 수정
+- detail.html css 수정
+- @media screen and (max-width: 500px) 를 추가적으로 수정함으로 
