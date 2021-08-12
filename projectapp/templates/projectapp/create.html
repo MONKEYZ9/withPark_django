@@ -8,7 +8,7 @@
             <h4>Create Article</h4>
         </div>
         <div>
-            <form action="{% url 'articleapp:create' %}" method="post" enctype="multipart/form-data">
+            <form action="{% url 'projectapp:create' %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% bootstrap_form form %}
                 <div class="m-5">
