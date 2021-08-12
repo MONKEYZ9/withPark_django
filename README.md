@@ -325,3 +325,4 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
  - templates/projectsapp create.html 생성
 - Detail  추가
  - detail.html, urls.py, views.py 수정
+- createview success_url 수정
