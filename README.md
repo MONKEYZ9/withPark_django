@@ -315,3 +315,7 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 2. projectapp 생성
 - python manage.py startapp projectapp
 - setting.py, urls.py 추가
+- Model 구축
+ - forms.py 생성
+ - python manage.py makemigrations
+ - python manage.py migrate
