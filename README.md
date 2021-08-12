@@ -319,3 +319,7 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
  - forms.py 생성
  - python manage.py makemigrations
  - python manage.py migrate
+- View 생성
+ - views.py createview 생성
+ - urls.py path 추가
+ - templates/projectsapp create.html 생성
