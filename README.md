@@ -330,3 +330,6 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 ##0817
 1. Project List 생성
 - ariticles의 list.html을 참고해서 list.html 생성
+- 게시판의 사진 크기에 맞게 다시 , 게시판에 그림자 지우기
+- 게시판의 이름이 길면 레이아웃이 깨짐 절삭해서 보여주자  truncatechars:7
+- ariticles, projects로 가는 버튼 생성
