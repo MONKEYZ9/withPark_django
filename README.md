@@ -339,4 +339,10 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 - articleapp Model에 project 필드를 추가
 - 바뀐 거 적용해주자 python manage.py makemigrations python manage.py migrate
 - forms.py에도 필드에 추가해주자
+
+2. 내 프로필에서 확인하기
 - list_fragement.html을 추가
+- 
+
+3. 구독을 할 수 있는 subscribeapp
+- python manage.py startapp subscribeapp, urls, setting 수정
