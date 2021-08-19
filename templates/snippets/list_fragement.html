@@ -1,6 +1,5 @@
-{% extends 'base.html' %}
 {% load static %}
-{% block content %}
+
 
     <style>
         .container {
@@ -9,12 +8,12 @@
         }
 
         .container div {
-            width: 45%;
-                max-width: 200px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 1rem;
+          width: 45%;
+            max-width: 200px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 1rem;
             flex-direction: column;
             box-shadow: 0 0 .5rem darkgray;
         }
@@ -23,21 +22,23 @@
             width: 100%;
             border-radius: 1rem;
         }
+
     </style>
 
-    <section>
-        <div class="container my-4">
-            {% for article in article_list %}
-                <div>
-                    <a href="{% url 'articleapp:detail' pk=article.pk %}">
-                        <img src="{{ article.image.url }}" alt="">
-                    </a>
-                    <span class="m-2">{{ article.title }}</span>
-                </div>
-            {% endfor %}
+    <div class="container my-4">
 
-        </div>
-    </section>
+        {% for article in article_list %}
+
+            <div>
+                <a href="{% url 'articleapp:detail' pk=article.pk %}">
+                    <img src="{{ article.image.url }}" alt="">
+                </a>
+                <span class="NNS_B m-2">{{ article.title }}</span>
+            </div>
+
+        {% endfor %}
+
+    </div>
 
     <script src="{% static 'js/magicgrid.js' %}"></script>
 
@@ -45,14 +46,11 @@
 
     <div class="text-center my-5">
         <a href="{% url 'articleapp:create' %}"
-            class="btn btn-dark rounded-pill material-icons">
+           class="btn btn-dark rounded-pill material-icons">
             brush
         </a>
         <a href="{% url 'articleapp:create' %}"
-            class="btn btn-outline-dark rounded-pill px-5">
-            Create Articles
+           class="btn btn-outline-dark rounded-pill px-5">
+            Create Article
         </a>
     </div>
-
-{% endblock %}
-
