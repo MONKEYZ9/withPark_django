@@ -346,3 +346,5 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 
 3. 구독을 할 수 있는 subscribeapp
 - python manage.py startapp subscribeapp, urls, setting 수정
+- Model 구축, Meta 클래스를 이용해서 구독은 한번만 하게끔
+- python manage.py makemigrations python manage.py migrate
