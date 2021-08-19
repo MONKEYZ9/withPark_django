@@ -10,3 +10,7 @@ class Project(models.Model):
     image = models.ImageField(upload_to='project/', null=False)
     # auto_now_add 생성되는 순간을 찍어줌
     created_at = models.DateTimeField(auto_now_add=True)
+
+    # 파이썬에서 불러올 수 있는 방법을 수정할거임
+    def __str__(self):
+        return f'{self.name}'
