@@ -339,3 +339,4 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 - articleapp Model에 project 필드를 추가
 - 바뀐 거 적용해주자 python manage.py makemigrations python manage.py migrate
 - forms.py에도 필드에 추가해주자
+- list_fragement.html을 추가

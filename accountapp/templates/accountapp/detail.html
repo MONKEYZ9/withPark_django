@@ -14,12 +14,12 @@
                 <h2 class="NNS_B">
                     {{ target_user.profile.nickname }}
                     {# 프로필 업데이트 추가                    #}
-                    {% if user == target_user %}
-                        <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}"
-                           class="material-icons round_button md-36">
-                            edit
-                        </a>
-                    {% endif %}
+                        {% if target_user == user %}
+                            <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}"
+                               class="material-icons round_button md-36">
+                                edit
+                            </a>
+                        {% endif %}
                 </h2>
                 <h5>{{ target_user.profile.message }}</h5>
             {% else %}
@@ -33,7 +33,7 @@
         </div>
         <div>
             {% if user == target_user %}
-                <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}"
+                <a href="{% url 'accountapp:update' pk=target_user.profile.pk %}"
                    class="material-icons round_button md-36 mx-1">
                     settings
                 </a>
