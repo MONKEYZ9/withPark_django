@@ -16,10 +16,12 @@ from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic.list import MultipleObjectMixin
 
 from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountUpdateForm
 from accountapp.models import HelloWorld
+from articleapp.models import Article
 
 
 @login_required(login_url=reverse_lazy('accountapp:login'))  # 이미 장고에서 login 확인하는 것을 만들어놨음
@@ -69,12 +71,15 @@ class AccountCreateView(CreateView):  # CreateView는 알아볼 필요가 있다
 
 
 # 회원정보
-class AccountDetailView(DetailView):
+class AccountDetailView(DetailView, MultipleObjectMixin):
     model = User
     context_object_name = 'target_user'  # 우리가 템플릿에서 사용하는 유저의 객체를 보는 것이다.
     template_name = 'accountapp/detail.html'
 
-
+    paginate_by = 20
+    def get_context_data(self, **kwargs):
+        article_list = Article.objects.filter(writer=self.object)
+        return super().get_context_data(object_list=article_list, **kwargs)
 # 데코레이터를 확인하는 리스트
 has_ownership = [login_required, account_ownership_required]
 
