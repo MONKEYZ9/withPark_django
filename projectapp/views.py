@@ -25,6 +25,7 @@ class ProjectCreateView(CreateView):
         return reverse('projectapp:detail', kwargs={'pk' : self.object.pk})
 
 
+@method_decorator(login_required, 'get')
 class ProjectDetailView(DetailView, MultipleObjectMixin):
     model = Project
     context_object_name = 'target_project'
