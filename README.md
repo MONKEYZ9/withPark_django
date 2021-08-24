@@ -392,3 +392,10 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 1-4
 - css 수정 
   ->base.css, article detail.html
+  
+1-5
+- 장고 메세지 기능(https://docs.djangoproject.com/en/3.2/ref/contrib/messages/)
+- 좋아요를 눌렀을때 유저에게 메세지를 보내주자
+-> def add_message(request: {_messages}, level: Any, message: Any, extra_tags: str = '', fail_silently: bool = False) -> Any
+-> 위를 사용해서 view.py 수정
+-> 해당 메세지를 base.html에서 메세지를 출력할 수 있게끔 해주자

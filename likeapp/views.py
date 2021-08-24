@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -24,14 +25,29 @@ class LikeArticleView(RedirectView):
                                                 article=article)
         # 좋아요가 눌러져있다면
         if like_record.exists():
+            # 좋아요 반영되지 않음
+            # 메세지는  django.contrib 에서 들고온다.
+            # messages.add_message(request, level=messages.ERROR, message='이미 눌려있습니다.')
+            messages.add_message(request, messages.ERROR, '이미 눌려있습니다.')
+            # def add_message(request: {_messages},
+            #                 level: Any,
+            #                 message: Any,
+            #                 extra_tags: str = '',
+            #                 fail_silently: bool = False) -> Any
+
             return HttpResponseRedirect(reverse('articleapp:detail',
                                                 kwargs={'pk': kwargs['article_pk']}))
 
+        
+        
         # 좋아요 누르고 db에 바로 저장
         LikeRecord(user=user, article=article).save()
         # article의 like 컬럼의 로우에도 적용 하고 저장
         article.like += 1
         article.save()
+        #좋아요 반영되었음
+        # messages.add_message(request, level=messages.SUCCESS, message='좋아요!')
+        messages.add_message(request, messages.SUCCESS, '좋아요!')
         return super().get(request, *args, **kwargs)
 
     # 리다이렉 할때 어디로 갈지
