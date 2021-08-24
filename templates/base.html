@@ -12,7 +12,7 @@
 {#메세지 자리 장고에서 지원하는 프레임 워크#}
 {% for message in messages %}
     <div class="text-center">
-        <div class="">
+        <div class="btn btn-{{ message.tags }} rounded-pill">
             {{ message }}
         </div>
     </div>

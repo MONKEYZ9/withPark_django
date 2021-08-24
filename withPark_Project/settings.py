@@ -15,6 +15,8 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from django.urls import reverse_lazy
 
+from django.contrib.messages import constants as messages
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -40,7 +42,7 @@ SECRET_KEY = env_list['SECRET_KEY']
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '*' # 일단은 모든 ip가 가능하게
+    '*'  # 일단은 모든 ip가 가능하게
 ]
 
 # Application definition
@@ -162,3 +164,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # 라우트 이름을 제대로 해줘야 한다.
 LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hello world')
 LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
