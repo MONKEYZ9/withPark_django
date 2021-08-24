@@ -365,3 +365,11 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
   - where 구문을 사용하는 것
     - Model__in= 이렇게 사용하면 된다.
     - 원하는 것들을 받아서 리스트에 담고 해주자 
+
+
+##0824
+0. 이름 길어서 추가되는 수정해야함
+- 확인만 함
+
+1. 좋아요 기능 likeapp
+- python manage.py startapp likeapp, setting, urls 수정, urls추가
