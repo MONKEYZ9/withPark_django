@@ -21,3 +21,6 @@ class Article(models.Model):
 
     # 디비 내에서 자동으로 날짜를 입력해줄 수 있는거
     create_at = models.DateField(auto_now_add=True)
+
+    # 좋아요 숫자
+    like = models.IntegerField(default=0)
