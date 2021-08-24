@@ -13,14 +13,16 @@
             {# 좋아요 버튼 #}
         <div>
             <a href="{% url 'likeapp:article_like' article_pk=target_article.pk %}"
-                class="material-icons">
+                class="material-icons"
+                style="vertical-align: middle; font-size: 1.2rem; color: indianred;">
                 favorite
             </a>
-            <span>
+            <span style="vertical-align: middle;">
                 {{ target_article.like }}
             </span>
         </div>
-        <div>
+    <hr>
+        <div class="my-5">
             {# 게시글 대표 이미지, 개시글 내용 #}
             {#  alt=""는 기본 이미지인데 그냥 내비둔다. #}
             <img src="{{ target_article.image.url }}"
