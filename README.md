@@ -374,11 +374,17 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 1. 좋아요 기능 likeapp
 1-1 app 생성
 - python manage.py startapp likeapp, setting, urls 수정, urls추가
+
 1-2 Model 구축
-  
 - 좋아요 숫자를 세는 모델을 만들건데
 -> article Model에도 수정해줘야 해
 -> likeapp Model 생성
   -> 두가지 다 반영
   -> python manage.py makemigrations
   -> python manage.py migrate
+  
+1-3 
+- view, urls 작성
+  -> view에서 좋아요가 눌렸는지 확인하고 안눌렸다면 추가하고 눌렸다면 리다이렉해주게끔
+  -> 리다이렉할때 어디로 갈지도 추가
+- articleapp detail.html 좋아요 추가
