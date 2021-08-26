@@ -2,7 +2,10 @@
 {% load bootstrap4 %}
 
 {% block content %}
-
+    {# WYSIWYG 파일 가져오기#}
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css"
+          type="text/css" media="screen" charset="utf-8">
 
     <div class="text-center mw-500 m-auto">
         <div class="m-5">
@@ -16,12 +19,14 @@
                 {% csrf_token %}
                 {% bootstrap_form form %}
                 <div class="m-5">
-                <input type="submit"
-                       class="btn btn-dark rounded-pill px-5">
+                    <input type="submit"
+                           class="btn btn-dark rounded-pill px-5">
                 </div>
             </form>
         </div>
     </div>
 
+    {# WYSIWYG 사용하기 #}
+    <script>var editor = new MediumEditor('.editable');</script>
 
 {% endblock %}

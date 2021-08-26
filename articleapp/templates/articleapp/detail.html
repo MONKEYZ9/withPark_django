@@ -29,7 +29,8 @@
                  class="article_image"
                  alt="">
             <div class="article_content my-5">
-                {{ target_article.content }}
+                {# | safe를 사용함으로 태그를 보호해준다는 거야 #}
+                {{ target_article.content | safe }}
             </div>
         </div>
 

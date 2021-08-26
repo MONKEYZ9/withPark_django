@@ -404,3 +404,12 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
 ##0826
 1. 트랜젝션 구축할거임
 - 에러나 났을때 정상적으로 실행이 되었음
+
+2. WYSIWYG 기능 구축
+ - https://ko.wikipedia.org/wiki/%EC%9C%84%EC%A7%80%EC%9C%84%EA%B7%B8
+ - Medium editor 를 사용할거임 ( https://yabwe.github.io/medium-editor/ )
+ - github에 있는 것으로 하자 ( https://github.com/yabwe/medium-editor )
+ - article create에만 할거임
+ - article의 모델에서 editable를 구현하려면 추가
+ - 파일에서 스타일 태그 추가 가능
+ - article create 디자인 수정
