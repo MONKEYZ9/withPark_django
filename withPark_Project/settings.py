@@ -162,8 +162,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # 라우트 이름을 제대로 해줘야 한다.
-LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hello world')
-LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
+LOGIN_REDIRECT_URL = reverse_lazy('articleapp:list')
+LOGOUT_REDIRECT_URL = reverse_lazy('articleapp:list')
 
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',

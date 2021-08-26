@@ -24,45 +24,45 @@ from accountapp.models import HelloWorld
 from articleapp.models import Article
 
 
-@login_required(login_url=reverse_lazy('accountapp:login'))  # 이미 장고에서 login 확인하는 것을 만들어놨음
-# 어떻게 이렇게 잘 찾아갈까..?
-# 다만 login_url을 이렇게 하면 돼
-def hello_world(req):
-    # 로그인이 되어있는지 안되어있는지 확인하고 post가 되었는지를 보자는 거야
-    # if req.user.is_authenticated:  # => 이걸 decorator로 대체해줄거임
-    if req.method == 'POST':
-        temp = req.POST.get("input_text")
-        new_hello_world = HelloWorld()  # 모델에서 가져왔어
-        new_hello_world.text = temp
-        new_hello_world.save()  # 새로운 헬로 월드라는게 만들어 졌는데 이걸 객체를 보내줄거라는거야
-
-        # new_hello_world_list = HelloWorld.objects.all()  # 여러가지가 있다. objects를 가져와야 하는데 여러가지가 있는 편이다.
-        # # 이걸 다 보내주는 거야
-
-        # 리다이렉을 하게 되면 get에서 하고 있는 걸 다 받아내기에 굳이 할 필요가 없어
-
-        # 리다이렉을 할거라는 거야
-        # 렌더로 매번 주소를 적어서 보내는게 아니라 해당 라우팅으로 가게끔해서 get으로 보여주도록 한다
-        # reverse 매소드를 가져와야 하는데 장고에서 제공하는 걸 가져오도록 한다.
-        return HttpResponseRedirect(reverse('accountapp:hello world'))
-        # return render(req, 'accountapp/hello_world.html',
-        #               context={'new_hello_world': new_hello_world, 'new_hello_world_list': new_hello_world_list})
-    else:
-        new_hello_world_list = HelloWorld.objects.all()  # 여러가지가 있다. objects를 가져와야 하는데 여러가지가 있는 편이다.
-        # post와 똑같이 리스트로 받아서 보여주도록 하자
-
-        # 홈페이지에 접근할때는 보통 get 방식을 쓴다.
-        return render(req, 'accountapp/hello_world.html',
-                      context={'new_hello_world_list': new_hello_world_list})
-    # else:
-    #     return HttpResponseRedirect(reverse('accountapp:login')) # => decorator 적용할거임
+# @login_required(login_url=reverse_lazy('accountapp:login'))  # 이미 장고에서 login 확인하는 것을 만들어놨음
+# # 어떻게 이렇게 잘 찾아갈까..?
+# # 다만 login_url을 이렇게 하면 돼
+# def hello_world(req):
+#     # 로그인이 되어있는지 안되어있는지 확인하고 post가 되었는지를 보자는 거야
+#     # if req.user.is_authenticated:  # => 이걸 decorator로 대체해줄거임
+#     if req.method == 'POST':
+#         temp = req.POST.get("input_text")
+#         new_hello_world = HelloWorld()  # 모델에서 가져왔어
+#         new_hello_world.text = temp
+#         new_hello_world.save()  # 새로운 헬로 월드라는게 만들어 졌는데 이걸 객체를 보내줄거라는거야
+#
+#         # new_hello_world_list = HelloWorld.objects.all()  # 여러가지가 있다. objects를 가져와야 하는데 여러가지가 있는 편이다.
+#         # # 이걸 다 보내주는 거야
+#
+#         # 리다이렉을 하게 되면 get에서 하고 있는 걸 다 받아내기에 굳이 할 필요가 없어
+#
+#         # 리다이렉을 할거라는 거야
+#         # 렌더로 매번 주소를 적어서 보내는게 아니라 해당 라우팅으로 가게끔해서 get으로 보여주도록 한다
+#         # reverse 매소드를 가져와야 하는데 장고에서 제공하는 걸 가져오도록 한다.
+#         return HttpResponseRedirect(reverse('accountapp:hello world'))
+#         # return render(req, 'accountapp/hello_world.html',
+#         #               context={'new_hello_world': new_hello_world, 'new_hello_world_list': new_hello_world_list})
+#     else:
+#         new_hello_world_list = HelloWorld.objects.all()  # 여러가지가 있다. objects를 가져와야 하는데 여러가지가 있는 편이다.
+#         # post와 똑같이 리스트로 받아서 보여주도록 하자
+#
+#         # 홈페이지에 접근할때는 보통 get 방식을 쓴다.
+#         return render(req, 'accountapp/hello_world.html',
+#                       context={'new_hello_world_list': new_hello_world_list})
+#     # else:
+#     #     return HttpResponseRedirect(reverse('accountapp:login')) # => decorator 적용할거임
 
 
 class AccountCreateView(CreateView):  # CreateView는 알아볼 필요가 있다.
     # 뭘 만들거냐 모델을 만들건데 장고에서 제공해주는 것이 있어 => User
     model = User  # class AbstractUser(AbstractBaseUser, PermissionsMixin): 여기 함 들어가서 어떻게 되있나 봐봐라
     form_class = UserCreationForm  # 다 일일히 부르자
-    success_url = reverse_lazy('accountapp:hello world')
+    success_url = reverse_lazy('articleapp:list')
     # 예전에 리다이렉 했을때랑 동일하게 reverse를 이용해서 주소를 적어줬어 그거랑 동일하게 하면 된다.
     # 근데 reverse를 바로 사용하면 안된다. 메소드에서 reverse를 부르는 것과 class에서 부르는 것은 엄연히 다르다는 거야
     template_name = 'accountapp/create.html'  # 회원가입 페이지 이름을 뭐로 할건지를 정해주는거
@@ -128,7 +128,7 @@ class AccountUpdateView(UpdateView):
 class AccountDeleteView(DeleteView):
     model = User
     context_object_name = 'target_user'
-    success_url = reverse_lazy('accountapp:login')
+    success_url = reverse_lazy('articleapp:list')
     template_name = 'accountapp/delete.html'
 
     #     로그인이 되어있는지 확인하자

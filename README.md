@@ -415,3 +415,7 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
  - article create 디자인 수정
  
  - beagle 테마 적용해주기
+ - update 페이지에도 적용하기
+
+2. hello_world 지우기
+- 관련된 잔잔바리들 다 지우기
