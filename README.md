@@ -413,3 +413,5 @@ port 번호는 좌측 위 드롭다운을 눌러서 컨피규어가 나오게 �
  - article의 모델에서 editable를 구현하려면 추가
  - 파일에서 스타일 태그 추가 가능
  - article create 디자인 수정
+ 
+ - beagle 테마 적용해주기
