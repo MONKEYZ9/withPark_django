@@ -2,23 +2,23 @@
     <div class="header_box">
         <div class="header_logo">
             <h1>
-                <a href="{% url 'articleapp:list' %}">With Park django Project </a>
+                <a href="{% url 'home' %}">With Park django Project </a>
             </h1>
             {# font가 안될때 2차적으로 sans-serif를 쓰라고 하는거야   #}
         </div>
         <div class="header_button">
-            <span>
+            <span class="mx-2">
                 <a href="{% url 'articleapp:list' %}">
                     Ariticles
                 </a>
             </span>
-            <span>
+            <span class="mx-2">
                 <a href="{% url 'projectapp:list' %}">
                     Projects
                 </a>
             </span>
             {% if user.is_authenticated %}
-                <span>
+                <span class="mx-2">
                 <a href="{% url 'subscribeapp:list' %}">
                 Subscription
                 </a>
@@ -27,21 +27,21 @@
             {#  로그인 가는 버튼  / 로그인을 하면 안보이게 해야 하고#}
             {#  분기문을 쓰자  유저객체에 접근해서 로그인 여부를 확인하는 메소드를 호출 #}
             {% if not user.is_authenticated %}
-                <span>
+                <span class="mx-2">
                 <a href="{% url 'accountapp:login' %}">Login</a>
                 </span>
                 {# 회원가입 #}
-                <span>
+                <span class="mx-2">
                     <a href="{% url 'accountapp:create' %}">Join</a>
                 </span>
 
             {% else %}
-                <span>
+                <span class="mx-2">
                     {# 파라메터 값을 넣어줘야 함  user객체가 요청을 하는 것이니까 user의 pk값을 받으면 돼   #}
                     <a href="{% url 'accountapp:detail' pk=user.pk %}">Detail</a>
                 </span>
 
-                <span>
+                <span class="mx-2">
                     <a href="{% url 'accountapp:logout' %}">Logout</a>
                 </span>
 

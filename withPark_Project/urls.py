@@ -18,7 +18,10 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+from articleapp.views import ArticleListView
+
 urlpatterns = [
+                  path('', ArticleListView.as_view(), name='home'),
                   path('admin/', admin.site.urls),
                   # path('accounts/', include('accountapp.urls')) => 장고에서 기본적으로 만들어놓은 경로이다.
                   path('accounts/', include('accountapp.urls')),

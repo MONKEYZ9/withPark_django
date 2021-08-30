@@ -13,7 +13,7 @@ class Article(models.Model):
 
     # 프로젝트를 연결했어
     project = models.ForeignKey(Project, on_delete=models.SET_NULL,
-                                related_name='article', null=True)
+                                related_name='article', null=True, blank=True)
 
     title = models.CharField(max_length=200, null=True) # 제목 없어도 된다.
     image = models.ImageField(upload_to='article/', null=True)
