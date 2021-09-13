@@ -65,3 +65,4 @@ media/
 staticfiles/
 
 f_django.pem
+Dockerfile
