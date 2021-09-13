@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'projectapp',
     'subscribeapp',
     'likeapp',
-    'settings',
 ]
 
 MIDDLEWARE = [
