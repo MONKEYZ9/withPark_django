@@ -66,3 +66,4 @@ staticfiles/
 
 f_django.pem
 Dockerfile
+docker-compose.yml
